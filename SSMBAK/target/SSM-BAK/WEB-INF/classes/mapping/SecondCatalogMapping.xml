@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.SecondCatalogDao">
+
+    <resultMap id="secondCatalogDaoResultMap" type="com.cxspace.ssm.model.SecondCatalog">
+
+        <id property="id" column="id"/>
+
+        <result property="name" column="name"></result>
+
+    </resultMap>
+
+    <select id="findAllSecondCatalogByFirstCatalogId" parameterType="Integer" resultMap="secondCatalogDaoResultMap">
+
+        SELECT * FROM t_second_catalog WHERE first_catalog_id = #{id};
+
+    </select>
+
+    <insert id="save" parameterType="com.cxspace.ssm.model.SecondCatalog">
+
+        INSERT INTO t_second_catalog (name,first_catalog_id) VALUES (#{name},#{first_catalog_id});
+
+    </insert>
+
+    <delete id="deleteSecondCatalogById" parameterType="Integer">
+
+        DELETE FROM t_second_catalog WHERE id = #{id};
+
+    </delete>
+
+    <select id="selectOne" parameterType="Integer" resultMap="secondCatalogDaoResultMap">
+
+        SELECT * FROM t_second_catalog WHERE id = #{id};
+
+    </select>
+
+    <select id="findAll" resultMap="secondCatalogDaoResultMap">
+
+        SELECT * FROM t_second_catalog;
+
+    </select>
+
+    <update id="edit" parameterType="com.cxspace.ssm.model.SecondCatalog">
+
+        UPDATE t_second_catalog SET
+
+        name = #{name},
+
+        first_catalog_id = #{first_catalog_id}
+
+        WHERE
+
+        id = #{id};
+
+    </update>
+
+</mapper>
