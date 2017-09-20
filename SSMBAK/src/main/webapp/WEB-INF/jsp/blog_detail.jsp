@@ -70,7 +70,7 @@
 
 
 
-			<p style="text-align: center">创建者: ${document.username}&nbsp;&nbsp;&nbsp;&nbsp;邮箱: 123456789</p>
+			<p style="text-align: center">创建者: ${document.username}&nbsp;&nbsp;&nbsp;&nbsp;邮箱: ${document.useremail}</p>
 
 			<p style="text-align: center">时间：${document.create_time}</p>
 
